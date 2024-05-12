@@ -9,7 +9,6 @@ export const routes: Routes = [
     {path : 'login' , loadComponent : ()=> import('./login/login.component').then((c)=>c.LoginComponent)},
     {path : 'signup' , loadComponent : ()=> import('./signup/signup.component').then((c)=>c.SignupComponent)},
     {path : 'groups' , loadComponent : ()=> import('./groups/groups.component').then((c)=>c.GroupsComponent)},
-    {path : 'trainers' , loadComponent : ()=> import('./trainers/trainers.component').then((c)=>c.TrainersComponent)},
     //{path : 'userList' , loadComponent : ()=> import('./user-list/user-list.component').then((c)=>c.UserListComponent)},
     {path : 'groupJoin' , loadComponent : ()=> import('./group-join/group-join.component').then((c)=>c.GroupJoinComponent)},
     {path: 'userList', loadComponent: () => import('./user-list/user-list.component').then((c) => c.UserListComponent), canActivate: [authGuard] },

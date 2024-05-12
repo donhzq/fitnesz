@@ -1,7 +1,7 @@
 
 <app-menu></app-menu>
 
-<div class="uk-overflow-auto" *ngIf="groups && groups.length; else noUsersTemplate">
+<div class="uk-overflow-auto" *ngIf="groups && groups.length; else noGroupTemplate">
     <table class="uk-table uk-table-divider">
         <thead>
             <tr>
@@ -17,7 +17,7 @@
                 <ng-container>
                     <td>{{group.name}}</td>
                     <td>{{group.trainer}}</td>
-                    <td><button  (click)="joinGroup(group._id)" class="uk-button uk-button-primary">Csatlakozás</button></td>
+                    <td><button  (click)="joinGroup(group._id)" [disabled]="!Suser"  class="uk-button uk-button-primary">Csatlakozás</button></td>
                 </ng-container>
             </tr>
         </tbody>
@@ -26,6 +26,6 @@
         <p>{{msg}}</p>
     </div>
 </div>
-<ng-template #noUsersTemplate>
-    <p>Nincsen egy csoport sem</p>
+<ng-template #noGroupTemplate>
+    <p>Ninscen egy csoport sem</p>
 </ng-template>

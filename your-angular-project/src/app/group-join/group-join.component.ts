@@ -19,6 +19,7 @@ export class GroupJoinComponent implements OnInit {
   Suser?: User;
   msg: string ='';
   
+ 
 
   joinGroup(id: string){
     if (this.Suser && this.Suser._id) {
@@ -35,6 +36,13 @@ export class GroupJoinComponent implements OnInit {
 
 
   async ngOnInit(): Promise<void> {
+
+    if(this.Suser && this.Suser._id){
+      this.msg = "A csatlakozáshoz kérem jeletkezzen be"
+    }else{
+      this.msg = '';
+
+    }
     this.Suser = await this.authService.getUser();   
 
     this.serverService.listAllGroups().subscribe({

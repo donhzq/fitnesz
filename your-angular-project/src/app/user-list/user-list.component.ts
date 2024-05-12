@@ -23,6 +23,8 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 export class UserListComponent implements OnInit {
   users: any[] = [];
   Suser?: User;
+  trainers: any[] = [];
+  nontrainers: any[] = [];
 
   async ngOnInit(): Promise<void> {
     this.Suser = await this.authService.getUser();   
@@ -31,6 +33,10 @@ export class UserListComponent implements OnInit {
       next: (data)=>{
         if(data){
           this.users = data;
+
+          this.trainers = this.users.filter(users => users.isTrainer == true);
+          this.nontrainers = this.users.filter(users => users.isTrainer == false);
+
           console.log(data);
         }
       }, error: (err) => {
@@ -71,6 +77,9 @@ export class UserListComponent implements OnInit {
 
   openSnackBar(message: string, duration: number) {
     this.snackBar.open(message, undefined, { duration: duration });
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/restaurants']);
+    });
   }
     
 }

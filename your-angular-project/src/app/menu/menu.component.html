@@ -2,11 +2,11 @@
     <div class="uk-navbar-left">
         <ul class="uk-navbar-nav">
             <li><a>{{user?.userName}}</a></li>
-            <li><a  (click)="navigate('/home')"> Főoldal</a></li>
-            <li><a (click)="navigate('/login')">Bejelentkezés</a></li>
-            <li><a (click)="navigate('/groups')" >Csoportok</a></li>
+            <li><a (click)="navigate('/home')"> Főoldal</a></li>
+            <li *ngIf = "!user"><a  (click)="navigate('/login')">Bejelentkezés</a></li>
+            <li *ngIf ="user" ><a (click)="logout()">Kijelentkezés</a></li>
+            <li *ngIf ="user"><a  (click)="navigate('/groups')" >Csoportok</a></li>
             <li><a (click)="navigate('/groupJoin')" >Csatlakozás csoporthoz</a></li>
-            <li><a (click)="navigate('/trainers')" >Edzők</a></li>
             <li><a (click)="navigate('/userList')" >Felhasználók</a></li>
         </ul>
     </div>
