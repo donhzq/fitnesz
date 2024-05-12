@@ -1,0 +1,48 @@
+[{
+  "_id": {
+    "$oid": "663f6f388d9d3318d4d70c7d"
+  },
+  "email": "a@g.com",
+  "name": "awdad",
+  "userName": "awdada",
+  "password": "$2b$10$oT487lOFwZNeoKDy/gZLGOoaskuaulaaPlNn578AtPsKwd5MGtDJW",
+  "isAdmin": false,
+  "isTrainer": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "663f77ff8d9d3318d4d70c81"
+  },
+  "email": "admin@gmail.com",
+  "name": "admin",
+  "userName": "admin",
+  "password": "$2b$10$UX2HTWIQElvqISsuUiIM8eICIO5.9VAVmkimKLlYVr83N6ZZ1GDFW",
+  "isAdmin": true,
+  "isTrainer": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "664119b1a847ebc8e226b6fe"
+  },
+  "email": "admin@admin.com",
+  "name": "admin",
+  "userName": "admin",
+  "password": "$2b$10$fdzylmpFYHaKIy9WUlQsIOKwbS6kRIBBdWd6B1j0I6su9aF0L4AF.",
+  "isAdmin": false,
+  "isTrainer": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "664119dda847ebc8e226b700"
+  },
+  "email": "admin@admin.com",
+  "name": "admin",
+  "userName": "admin",
+  "password": "$2b$10$zY0L3M4SqrR0n2UjJZyHF.cc5stFaHWnQrDc2VeB39jBOEvsB.U9W",
+  "isAdmin": false,
+  "isTrainer": false,
+  "__v": 0
+}]
