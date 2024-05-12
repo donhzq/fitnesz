@@ -5,7 +5,7 @@
             <li><a (click)="navigate('/home')"> Főoldal</a></li>
             <li *ngIf = "!user"><a  (click)="navigate('/login')">Bejelentkezés</a></li>
             <li *ngIf ="user" ><a (click)="logout()">Kijelentkezés</a></li>
-            <li *ngIf ="user"><a  (click)="navigate('/groups')" >Csoport létrehozás</a></li>
+            <li *ngIf ="user?.isAdmin==true"><a  (click)="navigate('/groups')" >Csoport létrehozás</a></li>
             <li><a (click)="navigate('/groupJoin')" >Csatlakozás csoporthoz</a></li>
             <li *ngIf ="user?.isAdmin==true"><a (click)="navigate('/userList')" >Felhasználók</a></li>
         </ul>
