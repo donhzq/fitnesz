@@ -1,105 +1,24 @@
 [{
   "_id": {
-    "$oid": "6640f96797f4e87f0d6c88d7"
+    "$oid": "6641423f103600b1f984d026"
   },
-  "name": "akma",
-  "trainer": "smgelse",
+  "name": "Box",
+  "trainer": "edzo pista",
+  "limit": 3,
   "users": [
-    "function String() { [native code] }",
-    "663f77ff8d9d3318d4d70c81"
+    "66412a98fadd284ae996c4a1"
   ],
-  "quaue": [
-    "function String() { [native code] }"
-  ],
+  "quaue": [],
   "__v": 1
 },
 {
   "_id": {
-    "$oid": "6640fd8f97f4e87f0d6c893d"
+    "$oid": "66414262103600b1f984d034"
   },
-  "name": "elso csoport",
-  "trainer": "awdad",
-  "users": [
-    "function String() { [native code] }",
-    "663f77ff8d9d3318d4d70c81",
-    "663f77ff8d9d3318d4d70c81",
-    "663f77ff8d9d3318d4d70c81"
-  ],
-  "quaue": [
-    "function String() { [native code] }",
-    "663f77ff8d9d3318d4d70c81"
-  ],
-  "__v": 4
-},
-{
-  "_id": {
-    "$oid": "6640fe2e97f4e87f0d6c8945"
-  },
-  "name": "akma",
-  "trainer": "awdad",
-  "users": [
-    "function String() { [native code] }",
-    "663f77ff8d9d3318d4d70c81",
-    "663f77ff8d9d3318d4d70c81"
-  ],
-  "quaue": [
-    "function String() { [native code] }"
-  ],
-  "__v": 2
-},
-{
-  "_id": {
-    "$oid": "66411a79a847ebc8e226b713"
-  },
-  "name": "box",
-  "trainer": "awdad",
-  "users": [
-    "function String() { [native code] }"
-  ],
-  "quaue": [
-    "function String() { [native code] }"
-  ],
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "66411a7da847ebc8e226b715"
-  },
-  "name": "box",
-  "trainer": "awdad",
-  "users": [
-    "function String() { [native code] }"
-  ],
-  "quaue": [
-    "function String() { [native code] }"
-  ],
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "66411a83a847ebc8e226b717"
-  },
-  "name": "box",
-  "trainer": "awdad",
-  "users": [
-    "function String() { [native code] }"
-  ],
-  "quaue": [
-    "function String() { [native code] }"
-  ],
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "66411acea847ebc8e226b740"
-  },
-  "name": "smg",
-  "trainer": "awdad",
-  "users": [
-    "function String() { [native code] }"
-  ],
-  "quaue": [
-    "function String() { [native code] }"
-  ],
+  "name": "Joga",
+  "trainer": "edzo pista",
+  "limit": 10,
+  "users": [],
+  "quaue": [],
   "__v": 0
 }]
