@@ -17,6 +17,7 @@ export class GroupsComponent implements OnInit {
 
   name: string ="";
   trainer: string ="";
+  limit: number = 0;
   allUsers: any[] = [];
   allTrainers : any [] = [];
   constructor( private serverService : ServerService , private authService : AuthService ,private router: Router ) {
@@ -25,11 +26,13 @@ export class GroupsComponent implements OnInit {
 
   createGroup() {
 
-    this.serverService.createGroup(this.trainer , this.name).subscribe({
+    this.serverService.createGroup(this.trainer , this.name , this.limit).subscribe({
       next: (data)=>{
         if(data){
           //navigation
-          //this.router.navigateByUrl('home');
+          this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+            this.router.navigate(['/groupJoin']);
+          });
           console.log(data);
         }
       }, error: (err) => {

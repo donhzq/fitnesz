@@ -23,11 +23,17 @@ export class ServerService {
     return this.http.delete('http://localhost:5000/app/deleteUser?id=' + id, {withCredentials: true});
   }
 
-  createGroup(trainer : string , name: string ) {
+
+  makeTrainer(id: string) {
+    return this.http.post('http://localhost:5000/app/makeTrainer?id=' + id, {withCredentials: true});
+  }
+  createGroup(trainer : string , name: string , limit:number ) {
     // HTTP POST request
     const body = new URLSearchParams();
     body.set('trainer', trainer);
     body.set('name', name);
+    let limitS = limit.toString();
+    body.set('limit', limitS);
     const headers = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded'
     });
@@ -41,11 +47,16 @@ export class ServerService {
 
   }
 
-  joinGroup(id: string , userId : string) {
+  joinGroup(id: string , userId : string , isFull: boolean) {
     const body = new URLSearchParams();
+    let isFullS ="";
+    if(isFull){
+      isFullS = "true";
+    }
+
     body.set('id', id);
     body.set('userId', userId);
-
+    body.set('isFull', isFullS);
     const headers = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded'
     });

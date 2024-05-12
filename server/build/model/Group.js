@@ -8,6 +8,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const GroupSchema = new mongoose_1.default.Schema({
     name: { type: String, required: true },
     trainer: { type: String, required: true },
+    limit: { type: Number, required: true },
     users: { type: [String], reqired: false },
     quaue: { type: [String], reqired: false }
 });

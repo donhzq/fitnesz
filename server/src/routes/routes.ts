@@ -114,10 +114,10 @@ export const configureRoutes = (passport: PassportStatic, router: Router): Route
     router.post('/createGroup', (req: Request, res: Response) => {
         const name  = req.body.name;
         const trainer = req.body.trainer;
-        const users = [String];
-        const quaue = [String];
-        const group = new Group({name: name, trainer: trainer, users: users , quaue : quaue
-        });
+        const limit = Number(req.body.limit)
+        const users: string[] = [];
+        const quaue: string[] = [];
+        const group = new Group({name: name, trainer: trainer, users: users , quaue : quaue , limit : limit});
         group.save().then(data => {
             res.status(200).send(data);
         }).catch(error => {
@@ -132,15 +132,14 @@ export const configureRoutes = (passport: PassportStatic, router: Router): Route
 
             const groupid = req.body.id;
             const userId = req.body.userId;
+            const isFull = Boolean(req.body.isFull);
             const query = Group.findOne({_id: groupid})
             query.then(group => {
                 if (group) {
-                    if(group.users.length<=3) {
+                    if(!isFull) {
                         group.users.push(userId);
-                       
                     }else {
                         group.quaue.push(userId);
-                      
                     }
                     group.save()
                         .then(updatedGroup => {
@@ -218,6 +217,18 @@ export const configureRoutes = (passport: PassportStatic, router: Router): Route
         } else {
             res.status(500).send('User is not logged in.');
         }
+    });
+
+    router.post('/makeTrainer', (req: Request, res: Response) => {
+        const id = req.query.id;
+        const query = User.findOneAndUpdate({_id: id}, {isTrainer: true});
+        query.then(data => {
+            res.status(200).send(data);
+        }).catch(error => {
+            console.log(error);
+            res.status(500).send('Internal server error.');
+        })
+        
     });
 
     router.get('/checkAuth', (req: Request, res: Response) => {

@@ -75,10 +75,26 @@ export class UserListComponent implements OnInit {
     })
   }
 
+  makeTrainer(id: string){
+
+    this.serverService.makeTrainer(id).subscribe({
+      next: (data) => {
+        console.log(data);
+
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.router.navigate(['/userList']);
+        });
+        
+      }, error: (err) => {
+        console.log(err);
+      }
+    });
+  }
+
   openSnackBar(message: string, duration: number) {
     this.snackBar.open(message, undefined, { duration: duration });
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/restaurants']);
+      this.router.navigate(['/home']);
     });
   }
     

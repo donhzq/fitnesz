@@ -5,5 +5,6 @@ export interface User {
     name: string;
     users: [];
     description : string;
+    limit : number;
     
 }

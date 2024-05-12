@@ -114,10 +114,10 @@ const configureRoutes = (passport, router) => {
     router.post('/createGroup', (req, res) => {
         const name = req.body.name;
         const trainer = req.body.trainer;
-        const users = [String];
-        const quaue = [String];
-        const group = new Group_1.Group({ name: name, trainer: trainer, users: users, quaue: quaue
-        });
+        const limit = Number(req.body.limit);
+        const users = [];
+        const quaue = [];
+        const group = new Group_1.Group({ name: name, trainer: trainer, users: users, quaue: quaue, limit: limit });
         group.save().then(data => {
             res.status(200).send(data);
         }).catch(error => {
@@ -128,10 +128,11 @@ const configureRoutes = (passport, router) => {
         //if (req.isAuthenticated()) {
         const groupid = req.body.id;
         const userId = req.body.userId;
+        const isFull = Boolean(req.body.isFull);
         const query = Group_1.Group.findOne({ _id: groupid });
         query.then(group => {
             if (group) {
-                if (group.users.length <= 3) {
+                if (!isFull) {
                     group.users.push(userId);
                 }
                 else {
@@ -207,6 +208,16 @@ const configureRoutes = (passport, router) => {
         else {
             res.status(500).send('User is not logged in.');
         }
+    });
+    router.post('/makeTrainer', (req, res) => {
+        const id = req.query.id;
+        const query = User_1.User.findOneAndUpdate({ _id: id }, { isTrainer: true });
+        query.then(data => {
+            res.status(200).send(data);
+        }).catch(error => {
+            console.log(error);
+            res.status(500).send('Internal server error.');
+        });
     });
     router.get('/checkAuth', (req, res) => {
         if (req.isAuthenticated()) {
