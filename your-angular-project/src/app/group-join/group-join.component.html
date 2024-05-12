@@ -1,0 +1,31 @@
+
+<app-menu></app-menu>
+
+<div class="uk-overflow-auto" *ngIf="groups && groups.length; else noUsersTemplate">
+    <table class="uk-table uk-table-divider">
+        <thead>
+            <tr>
+                <th>Csoport neve</th>
+                <th>Edző</th>
+                
+                <th>Csatlakozás a csoporthoz</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let group of groups">
+                <ng-container>
+                    <td>{{group.name}}</td>
+                    <td>{{group.trainer}}</td>
+                    <td><button  (click)="joinGroup(group._id)" class="uk-button uk-button-primary">Csatlakozás</button></td>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+    <div class="uk-alrt-warning">
+        <p>{{msg}}</p>
+    </div>
+</div>
+<ng-template #noUsersTemplate>
+    <p>Nincsen egy csoport sem</p>
+</ng-template>

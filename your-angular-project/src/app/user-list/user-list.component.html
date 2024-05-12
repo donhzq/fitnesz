@@ -1,0 +1,29 @@
+
+<app-menu></app-menu>
+
+<div class="uk-overflow-auto" *ngIf="users && users.length; else noUsersTemplate">
+    <table class="uk-table uk-table-divider">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Name</th>
+                <th>userName</th>
+                <th>Felhasználó törlése</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <ng-container *ngIf="user._id != Suser?._id">
+                    <td>{{user.email}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.userName}}</td>
+                    <td><button (click)="deleteUser(user._id)" class="uk-button uk-button-danger">Törlés</button></td>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<ng-template #noUsersTemplate>
+    <p>No users available.</p>
+</ng-template>
